@@ -15,7 +15,7 @@ import numpy as np
 
 from itertools import permutations
 
-def are_isomorphic(G, H):
+def are_isomorphic(G1, G2):
     """Check whether two graphs G and H are isomorphic.
     
     Note: This function is brute force and very slow.
