@@ -28,21 +28,21 @@ def are_isomorphic(G, H):
     	True if G and H are isomorphic.
     	False if G and H are not isomorphic.
     """
-    n = len(G.nodes())
-    m = len(H.nodes())
-    if n != m:
-        return False
-    if sorted(G.degree().values()) != sorted(H.degree().values()):
-        return False
-    else:
-        a_g = nx.adjacency_matrix(G)
-        vertex_perms = list(permutations(H.nodes(), m))
-        for i in vertex_perms:
-            a_h = nx.adjacency_matrix(H, i)
-            if (a_h == a_g).all():
-                #print(list(zip(G.nodes(), i)), "is an isomorphism") 
-                return True
-        return False
+
+  n = len(G1.nodes())
+  m = len(G2.nodes())
+  if n != m:
+      return False
+  if sorted(dict(G1.degree()).values()) != sorted(dict(G2.degree()).values()):
+      return False
+  else:
+      a_g = nx.adjacency_matrix(G1)
+      vertex_perms = list(permutations(G2.nodes(), m))
+      for i in vertex_perms:
+          a_h = nx.adjacency_matrix(G2, i)
+          if (a_h!=a_g).nnz==0:
+              return True
+      return False
 
 if __name__ == "__main__": 
 	
